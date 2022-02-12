@@ -1,16 +1,20 @@
 # import numpy
-
+import numpy as np
 
 print('creating list [0,1,2,3,4] in python and print the type of your list')
-
+my_list = [0,1,2,3,4]
+print(type(my_list))
 
 print('cast your list into a numpy arrary and print the type of your array')
-
+my_arr = np.array(my_list)
+print(type(my_arr))
 
 print('create a 3x3 array filled with zeros')
-
+a = np.zeros((3,3))
+print('a\n', a)
 
 print('create a 2x4 array filled with ones')
+b = np.ones((2,4))
 
 
 print('create a 3x4 array filled with tens')
