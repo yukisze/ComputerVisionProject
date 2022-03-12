@@ -41,19 +41,23 @@ print(torch.mm(x,y))
 # the model will have 3 hidden layers which include 200, 120, 60 respectively.
 
 # initiate the model and printout the number of parameters
+
 class model(torch.nn.Module):
-    def __init__(self, in_sz = 1000, out_sz = 20,layers=[200,120,60]):
+    def __init__(self, input = 1000, output = 20, parameter =[200,120,60]):
         super().__init__()
-        self.fc1 = torch.nn.Linear(in_features = in_sz,out_features = layers[0])
-        self.fc2 = torch.nn.Linear(in_features = layers[0],out_features = layers[1])
-        self.fc3 = torch.nn.Linear(in_features = layers[1],out_features = layers[2])
-        self.fc4 = torch.nn.Linear(in_features = layers[2],out_features = out_sz)
+        self.fc1 = torch.nn.Linear(in_features = input,out_features = parameter[0])
+        self.fc2 = torch.nn.Linear(in_features = parameter[0],out_features = parameter[1])
+        self.fc3 = torch.nn.Linear(in_features = parameter[1],out_features = parameter[2])
+        self.fc4 = torch.nn.Linear(in_features = parameter[2],out_features = output)
     def forward(self,x):
         x = self.fc1(x)
         x = self.fc2(x)
         x = self.fc3(x)
         x = self.fc4(x)
         return x
+
 model_yuki=model()
+
+
 for num in model_yuki.parameters():
     print(num.numel())
